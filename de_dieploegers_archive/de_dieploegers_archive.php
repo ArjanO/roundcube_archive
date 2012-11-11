@@ -9,6 +9,8 @@
  *  - based on sender
  *
  * Based on Archive plugin by Andre Rodier, Thomas Bruederli
+ * Button and skin-settings taken from the Archivefolder plugin by Andre
+ * Rodier, Thomas Bruederli and Roland 'rosali' Liebl
  *
  * @version 1.0b
  * @author Dennis Plöger <develop@dieploegers.de>
@@ -53,20 +55,37 @@ class de_dieploegers_archive extends rcube_plugin {
 
             $this->include_script('de_dieploegers_archive.js');
             $this->add_texts('localization', true);
-            $this->add_button(
-                array(
-                    'type' => 'link',
-                    'label' => 'buttonText',
-                    'command' => 'plugin.de_dieploegers_archive',
-                    'class' => 'button buttonPas archive disabled',
-                    'classact' => 'button archive',
-                    'width' => 32,
-                    'height' => 32,
-                    'title' => 'buttonTitle',
-                    'domain' => $this->ID,
-                ),
-                'toolbar'
-            );
+
+            if($rcmail->config->get('skin', 'classic') == 'larry'){
+                $this->add_button(
+                    array(
+                        'command' => 'plugin.de_dieploegers_archive',
+                        'type' => 'link',
+                        'label' => 'buttonText',
+                        'class' => 'button buttonPas archive disabled',
+                        'classact' => 'button archive',
+                        'width' => 32,
+                        'height' => 32,
+                        'title' => 'buttonTitle',
+                        'domain' => $this->ID,
+                    ),
+                    'toolbar');
+            }
+            else{
+                $this->add_button(
+                    array(
+                        'command' => 'plugin.de_dieploegers_archive',
+                        'type' => 'link',
+                        'label' => 'buttonText',
+                        'content' => ' ',
+                        'class' => 'button buttonPas archivefolder disabled',
+                        'classact' => 'button archivefolder',
+                        'classsel' => 'button archivefolderSel',
+                        'title' => 'buttonTitle',
+                        'domain' => $this->ID,
+                    ),
+                    'toolbar');
+            }
 
             // register hook to localize the archive folder
             $this->add_hook(
