@@ -1,0 +1,4 @@
+#rcmContextMenu .archive a
+{
+  background: url('foldericon.png') no-repeat 7px center;
+}

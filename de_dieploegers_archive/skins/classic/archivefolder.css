@@ -1,0 +1,11 @@
+#messagetoolbar a.archivefolder,
+#messagetoolbar a.archivefolderSel
+{
+  background-image: url(archive.png);
+  background-position: center 0;
+}
+
+#rcmContextMenu .archive a
+{
+  background: url('foldericon.png') no-repeat 7px center;
+}
