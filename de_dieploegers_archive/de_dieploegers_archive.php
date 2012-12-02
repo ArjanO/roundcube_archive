@@ -287,9 +287,9 @@ class de_dieploegers_archive extends rcube_plugin {
 
         $user = $this->account;
 
-        $archiveFolder = $rcmail->config->get('archive_mbox_' . $user);
+        $archiveFolder = $rcmail->config->get('archive_mbox_' . $user, $rcmail->config->get( 'archive_mbox' ));
 
-        $archiveType = $rcmail->config->get('archive_type_' . $user);
+        $archiveType = $rcmail->config->get('archive_type_' . $user, 'year');
 
         $storage = $rcmail->get_storage();
 
