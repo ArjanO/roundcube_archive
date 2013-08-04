@@ -41,7 +41,8 @@ class de_dieploegers_archive extends rcube_plugin {
                 $rcmail->action == '' ||
                 $rcmail->action == 'show'
             ) && (
-                $archive_folder = $rcmail->config->get('archive_mbox')
+                $archive_folder = $rcmail->config->get(
+                    'archive_mbox_' . $this->account)
             )
         ) {
 
